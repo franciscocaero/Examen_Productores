@@ -1,0 +1,14 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: '/v1/todos/productos'
+          expect:
+            - statusCode: 200
+              contains: "productos"
+            - statusCode: 404
+              contains: "No se encontraron productos"
